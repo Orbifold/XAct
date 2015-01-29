@@ -12,9 +12,11 @@ struct Math {
     static var Pi:Double = 3.141592
     
 }
-// For some issues with the data types in this implementation see http://stackoverflow.com/questions/28186817/multiply-with-carry-in-swift
-// Info about the algorithm can be found here: http://en.wikipedia.org/wiki/Random_number_generation
-// Most of the code is originally from http://www.codeproject.com/Articles/25172/Simple-Random-Number-Generation
+/**
+ - For some issues with the data types in this implementation see http://stackoverflow.com/questions/28186817/multiply-with-carry-in-swift
+ - Info about the algorithm can be found here: http://en.wikipedia.org/wiki/Random_number_generation
+ - Most of the code is originally from http://www.codeproject.com/Articles/25172/Simple-Random-Number-Generation
+*/
 public class MultiplyWithCarryRandomGenerator
 {
     
@@ -99,7 +101,7 @@ public class MultiplyWithCarryRandomGenerator
         return mean * GetExponential();
     }
     
-    public class func GetGamma(  shape:Double, scale:Double)->Double
+    public class func GetGamma(shape:Double, scale:Double)->Double
     {
         // Implementation based on "A Simple Method for Generating Gamma Variables"
         // by George Marsaglia and Wai Wan Tsang.  ACM Transactions on Mathematical Software
@@ -131,21 +133,21 @@ public class MultiplyWithCarryRandomGenerator
         return 0; // this should not be necessary but XCode complains nevertheless
     }
     
-    public class func GetChiSquare(  degreesOfFreedom:Double)->Double
+    public class func GetChiSquare(degreesOfFreedom:Double)->Double
     {
         // A chi squared distribution with n degrees of freedom
         // is a gamma distribution with shape n/2 and scale 2.
         return GetGamma(0.5 * degreesOfFreedom, scale: 2.0);
     }
     
-    public class func GetInverseGamma(  shape:Double,  scale:Double)->Double
+    public class func GetInverseGamma(shape:Double,  scale:Double)->Double
     {
         // If X is gamma(shape, scale) then
         // 1/Y is inverse gamma(shape, 1/scale)
         return 1.0 / GetGamma(shape,scale: 1.0 / scale);
     }
     
-    public class func GetWeibull(  shape:Double,   scale:Double)->Double
+    public class func GetWeibull(shape:Double,   scale:Double)->Double
     {
         if(shape <= 0.0 || scale <= 0.0)
         {

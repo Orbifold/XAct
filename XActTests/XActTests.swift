@@ -9,6 +9,21 @@
 import UIKit
 import XCTest
 
+class NumberTests :XCTestCase{
+    
+    func testIsEven(){
+        XCTAssertTrue(Numbers.IsEven(244),"244 is even I'd think.");
+        XCTAssertTrue(!Numbers.IsEven(42901),"42901 isn't even.");
+        XCTAssertTrue(!Numbers.IsEven(Int.max),"Max isn't even, it's undefined.");
+    }
+    
+    func testTruncate(){
+        XCTAssertEqual(Numbers.Truncate(2.3), 2.0,"Truncate(2.3) = 2")
+        XCTAssertEqual(Numbers.Truncate(12.53), 12.0,"Truncate(12.53) = 13")        
+        XCTAssertEqual(Numbers.Truncate(-77.03), -77.0,"Truncate(-77.03) = -77")
+    }
+}
+
 class XActTests: XCTestCase {
     
     override func setUp() {

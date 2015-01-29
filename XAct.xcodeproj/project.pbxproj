@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01829ED1A7A7BD10030C9E7 /* Numbers.swift */; };
+		D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01829ED1A7A7BD10030C9E7 /* Numbers.swift */; };
+		D01829F41A7A824B0030C9E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01829F31A7A824B0030C9E7 /* Constants.swift */; };
+		D01829F51A7A824B0030C9E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01829F31A7A824B0030C9E7 /* Constants.swift */; };
 		D03B49BA1A78A871003AAE6F /* XAct.h in Headers */ = {isa = PBXBuildFile; fileRef = D03B49B91A78A871003AAE6F /* XAct.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D03B49C01A78A871003AAE6F /* XAct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03B49B41A78A871003AAE6F /* XAct.framework */; };
 		D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49C61A78A871003AAE6F /* XActTests.swift */; };
@@ -25,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01829ED1A7A7BD10030C9E7 /* Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		D01829F31A7A824B0030C9E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D03B49B41A78A871003AAE6F /* XAct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XAct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03B49B81A78A871003AAE6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03B49B91A78A871003AAE6F /* XAct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XAct.h; sourceTree = "<group>"; };
@@ -53,6 +59,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D01829EC1A7A7BB20030C9E7 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				D01829ED1A7A7BD10030C9E7 /* Numbers.swift */,
+			);
+			name = Number;
+			sourceTree = "<group>";
+		};
+		D01829F01A7A7BE30030C9E7 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				D01829F11A7A7BF70030C9E7 /* Stochastic sources */,
+			);
+			name = Statistics;
+			sourceTree = "<group>";
+		};
+		D01829F11A7A7BF70030C9E7 /* Stochastic sources */ = {
+			isa = PBXGroup;
+			children = (
+				D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */,
+			);
+			name = "Stochastic sources";
+			sourceTree = "<group>";
+		};
+		D01829F21A7A82370030C9E7 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				D01829F31A7A824B0030C9E7 /* Constants.swift */,
+			);
+			name = Analysis;
+			sourceTree = "<group>";
+		};
 		D03B49AA1A78A871003AAE6F = {
 			isa = PBXGroup;
 			children = (
@@ -74,9 +112,11 @@
 		D03B49B61A78A871003AAE6F /* XAct */ = {
 			isa = PBXGroup;
 			children = (
+				D01829F21A7A82370030C9E7 /* Analysis */,
+				D01829F01A7A7BE30030C9E7 /* Statistics */,
+				D01829EC1A7A7BB20030C9E7 /* Number */,
 				D03B49B91A78A871003AAE6F /* XAct.h */,
 				D03B49B71A78A871003AAE6F /* Supporting Files */,
-				D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */,
 			);
 			path = XAct;
 			sourceTree = "<group>";
@@ -213,7 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
 				D03B49D11A78A8EA003AAE6F /* MWCGenerator.swift in Sources */,
+				D01829F41A7A824B0030C9E7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +265,8 @@
 			files = (
 				D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */,
 				D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */,
+				D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D01829F51A7A824B0030C9E7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +448,7 @@
 				D03B49CC1A78A871003AAE6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D03B49CD1A78A871003AAE6F /* Build configuration list for PBXNativeTarget "XActTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +457,7 @@
 				D03B49CF1A78A871003AAE6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
