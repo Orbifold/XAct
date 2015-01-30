@@ -17,6 +17,18 @@ class NumberTests :XCTestCase{
         XCTAssertTrue(!Numbers.IsEven(Int.max),"Max isn't even, it's undefined.");
     }
     
+    func testIsOdd(){
+        XCTAssertTrue(Numbers.IsOdd(-15301),"-15301 is odd.");
+        XCTAssertTrue(!Numbers.IsOdd(40008),"40008 isn't even.");
+        XCTAssertTrue(!Numbers.IsOdd(Int.max),"Max isn't even, it's undefined.");
+    }
+
+    func testIsPowerOfTwo(){
+        XCTAssertFalse(Numbers.IsPowerOfTwo(-8),"-8 is not a power of two.");
+        XCTAssertTrue(Numbers.IsPowerOfTwo(32),"32 is a power of two.");
+ 
+    }
+    
     func testTruncate(){
         XCTAssertEqual(Numbers.Truncate(2.3), 2.0,"Truncate(2.3) = 2")
         XCTAssertEqual(Numbers.Truncate(12.53), 12.0,"Truncate(12.53) = 13")        
