@@ -9,12 +9,12 @@
 import Foundation
 import Accelerate
 public class Numbers{
-
+    
     
     /**
     Returns whether the provided integer is an even number.
     
-    :param: number The number to check. 
+    :param: number The number to check.
     :returns: true if and only if the given number is not min, max or odd.
     */
     public class func IsEven(number:Int) -> Bool{
@@ -50,9 +50,9 @@ public class Numbers{
     }
     
     /**
-        Returns the closest perfect power of two that is larger or equal to the provided 32-bit integer.
+    Returns the closest perfect power of two that is larger or equal to the provided 32-bit integer.
     
-        FIXME: not sure how to make this work for generic Int
+    FIXME: not sure how to make this work for generic Int
     */
     public class func CeilingToPowerOfTwo(number:Int32) -> Int32{
         
@@ -71,9 +71,9 @@ public class Numbers{
         n |= n >> 16;
         return n + 1;
     }
-
+    
     /**
-        Returns the greatest common divisor of the given numbers.
+    Returns the greatest common divisor of the given numbers.
     */
     public class func GreatestCommonDivisor(integers:Int...) -> Int{
         if (integers.count == 0) {
@@ -96,7 +96,7 @@ public class Numbers{
     }
     
     /**
-        Returns the least common multiple of the given numbers.
+    Returns the least common multiple of the given numbers.
     */
     public class func LeastCommonMultiple(integers:Int...) -> Int{
         if(integers.count == 1){ return integers[0]}
@@ -117,5 +117,13 @@ public class Numbers{
     {
         if (abs(number) < Constants.Epsilon){ return 0.0 }
         return number < 0 ? ceil(number) : floor(number);
+    }
+    
+    /**
+        Returns whether the given numbers are equal up to to given precision withing an epsilon precision.
+    */
+    public class func AlmostEqual( a:Double,  b:Double,  numberOfDigits:Int = 5) -> Bool
+    {
+         return abs((a - b) * pow(10, Double(numberOfDigits)) )  <= Constants.Epsilon;
     }
 }

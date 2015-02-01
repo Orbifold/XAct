@@ -9,6 +9,28 @@
 import UIKit
 import XCTest
 
+class FunctionTests : XCTestCase
+{
+    let Accuracy = 1e-6
+    func testGammaLn(){
+        XCTAssertEqualWithAccuracy(1.50856818610322, Functions.GammaLn(3.76835145950317), Accuracy)
+        XCTAssertEqualWithAccuracy(1.52395510070524, Functions.GammaLn(3.78128070831299), Accuracy);
+        XCTAssertEqualWithAccuracy(3.51639004045872, Functions.GammaLn(5.22110624313355), Accuracy);
+        XCTAssertEqualWithAccuracy(1.05593856001418, Functions.GammaLn(3.36578979492187), Accuracy);
+        XCTAssertEqualWithAccuracy(2.93885210191772, Functions.GammaLn(4.83925867080688), Accuracy);
+        XCTAssertEqualWithAccuracy(0.513590205904634, Functions.GammaLn(2.79629344940186), Accuracy);
+        XCTAssertEqualWithAccuracy(0.429146817643342, Functions.GammaLn(2.69286489486694), Accuracy);
+        XCTAssertEqualWithAccuracy(2.59403131257292, Functions.GammaLn(4.60012321472168), Accuracy);
+        XCTAssertEqualWithAccuracy(9.01512217041147E-02, Functions.GammaLn(2.18743028640747), Accuracy);
+        XCTAssertEqualWithAccuracy(1.78957799295296, Functions.GammaLn(3.9982629776001), Accuracy);
+        
+        XCTAssertEqualWithAccuracy(39.3398841872, Functions.GammaLn(20), Accuracy);
+        XCTAssertEqualWithAccuracy(365.123, Functions.GammaLn(101.3), 0.01);
+        XCTAssertEqualWithAccuracy(1.82781, Functions.GammaLn(0.15), 0.01);
+        
+    }
+}
+
 class NumberTests :XCTestCase{
     
     func testIsEven(){
@@ -57,9 +79,14 @@ class NumberTests :XCTestCase{
         XCTAssertEqual(Numbers.LeastCommonMultiple( -3, 4 - 2, 3, 16), 48);
         XCTAssertEqual(Numbers.LeastCommonMultiple( 122,33,7,195,323), 591681090);
     }
+    
+    func testAlmostEqual(){
+        XCTAssertTrue(Numbers.AlmostEqual(2.334400000000000091, b: 2.3344, numberOfDigits: 5))
+         XCTAssertTrue(Numbers.AlmostEqual(2.334, b: 2.334000000001, numberOfDigits: 3))
+    }
 }
 
-class XActTests: XCTestCase {
+class MultiplyWithCarryRandomGeneratorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -102,7 +129,6 @@ class XActTests: XCTestCase {
     }
     
 }
-
 
 public class RandomGeneratorTester
 {

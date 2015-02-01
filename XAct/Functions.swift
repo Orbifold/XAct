@@ -128,4 +128,35 @@ public class Functions
         }
         return -1;
     }
+    
+    /**
+        Returns the natural logarithm of the gamma function for a real value larger than 0.
+    */
+    public class func GammaLn( x:Double) -> Double
+    {        
+        var coef = [57.1562356658629235,
+            -59.5979603554754912,
+            14.1360979747417471,
+            -0.491913816097620199,
+            0.339946499848118887E-4,
+            0.465236289270485756E-4,
+            -0.983744753048795646E-4,
+            0.158088703224912494E-3,
+            -0.210264441724104883E-3,
+            0.217439618115212643E-3,
+            -0.164318106536763890E-3,
+            0.844182239838527433E-4,
+            -0.261908384015814087E-4,
+            0.368991826595316234E-5
+        ];
+        
+        var denominator = x;
+        var series = 0.999999999999997092;
+        var temp = x + 5.24218750000000000;
+        temp = (x + 0.5) * log(temp) - temp;
+        for(var j = 0; j < 14; j++){
+            series += coef[j] / ++denominator;
+        }
+        return (temp + log(2.5066282746310005 * series / x));
+    }
 }
