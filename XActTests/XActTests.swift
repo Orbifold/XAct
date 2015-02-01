@@ -34,6 +34,29 @@ class NumberTests :XCTestCase{
         XCTAssertEqual(Numbers.Truncate(12.53), 12.0,"Truncate(12.53) = 13")        
         XCTAssertEqual(Numbers.Truncate(-77.03), -77.0,"Truncate(-77.03) = -77")
     }
+    func testCeilingToPowerOfTwo(){
+        XCTAssertEqual(Numbers.CeilingToPowerOfTwo(Int32(3)), Int32(4))
+        XCTAssertEqual(Numbers.CeilingToPowerOfTwo(Int32(20)), Int32(32))
+        
+    }
+    
+    func testGCD(){
+        XCTAssertEqual(Numbers.GreatestCommonDivisor(144, 55708), 4);
+        // an interesting bracket property of Fibonacci and GCD
+        XCTAssertEqual(
+            Numbers.GreatestCommonDivisor(
+                Int(Functions.Fibonacci(13)),
+                Int(Functions.Fibonacci(26))
+            ),
+            Int(Functions.Fibonacci(Numbers.GreatestCommonDivisor(13, 26)))
+        );
+    }
+    
+    func testLCM(){
+        XCTAssertEqual(Numbers.LeastCommonMultiple(2,3,5), 30);
+        XCTAssertEqual(Numbers.LeastCommonMultiple( -3, 4 - 2, 3, 16), 48);
+        XCTAssertEqual(Numbers.LeastCommonMultiple( 122,33,7,195,323), 591681090);
+    }
 }
 
 class XActTests: XCTestCase {

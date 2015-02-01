@@ -16,6 +16,8 @@
 		D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49C61A78A871003AAE6F /* XActTests.swift */; };
 		D03B49D11A78A8EA003AAE6F /* MWCGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */; };
 		D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */; };
+		D06A64921A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
+		D06A64931A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 		D03B49C51A78A871003AAE6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03B49C61A78A871003AAE6F /* XActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XActTests.swift; sourceTree = "<group>"; };
 		D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWCGenerator.swift; sourceTree = "<group>"; };
+		D06A64911A7CB38300D00421 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D01829F31A7A824B0030C9E7 /* Constants.swift */,
+				D06A64911A7CB38300D00421 /* Functions.swift */,
 			);
 			name = Analysis;
 			sourceTree = "<group>";
@@ -256,6 +260,7 @@
 				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
 				D03B49D11A78A8EA003AAE6F /* MWCGenerator.swift in Sources */,
 				D01829F41A7A824B0030C9E7 /* Constants.swift in Sources */,
+				D06A64921A7CB38300D00421 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +271,7 @@
 				D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */,
 				D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */,
 				D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D06A64931A7CB38300D00421 /* Functions.swift in Sources */,
 				D01829F51A7A824B0030C9E7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
