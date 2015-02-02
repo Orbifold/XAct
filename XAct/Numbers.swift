@@ -7,7 +7,11 @@
 //
 
 import Foundation
-import Accelerate
+
+
+/**
+Number-related functions and utilities.
+*/
 public class Numbers{
     
     
@@ -106,6 +110,20 @@ public class Numbers{
         var lcm = abs(integers[0]);
         for (var i = 1; i < integers.count; i++) {lcm = LeastCommonMultiple(lcm, integers[i]);}
         return lcm;
+    }
+    
+    /**
+        Returns whether the given floating number is almost an integer within the epsilon boundary.
+    */
+    public class func AlmostInteger(x:Double, inout n:Int?) -> Bool{
+        if( abs(Truncate(x)-x) < Constants.Epsilon){
+            n = Int(Truncate(x)-x)
+            return true
+        }
+        else{
+            n = nil
+            return false
+        }
     }
     
     /**

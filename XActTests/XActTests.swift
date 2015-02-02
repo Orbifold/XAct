@@ -12,7 +12,7 @@ import XCTest
 class FunctionTests : XCTestCase
 {
     let Accuracy = 1e-6
-    func testGammaLn(){
+    func testGammas(){
         XCTAssertEqualWithAccuracy(1.50856818610322, Functions.GammaLn(3.76835145950317), Accuracy)
         XCTAssertEqualWithAccuracy(1.52395510070524, Functions.GammaLn(3.78128070831299), Accuracy);
         XCTAssertEqualWithAccuracy(3.51639004045872, Functions.GammaLn(5.22110624313355), Accuracy);
@@ -28,6 +28,39 @@ class FunctionTests : XCTestCase
         XCTAssertEqualWithAccuracy(365.123, Functions.GammaLn(101.3), 0.01);
         XCTAssertEqualWithAccuracy(1.82781, Functions.GammaLn(0.15), 0.01);
         
+        
+        XCTAssertEqualWithAccuracy(2.41605085099579, Functions.Gamma(3.19672372937202), Accuracy);
+        XCTAssertEqualWithAccuracy(13.8825126879496, Functions.Gamma(4.62595878839493), Accuracy);
+        XCTAssertEqualWithAccuracy(2.13271882732642, Functions.Gamma(0.415676707029343), Accuracy);
+        XCTAssertEqualWithAccuracy(3.69810387443817, Functions.Gamma(3.59550366401672), Accuracy);
+        XCTAssertEqualWithAccuracy(1.77273235949519, Functions.Gamma(2.86533065438271), Accuracy);
+        XCTAssertEqualWithAccuracy(0.948430702927698, Functions.Gamma(1.85917609930038), Accuracy);
+        XCTAssertEqualWithAccuracy(4.55022977456423, Functions.Gamma(3.77391051650047), Accuracy);
+        XCTAssertEqualWithAccuracy(5.44572548650429, Functions.Gamma(3.92214500904083), Accuracy);
+        XCTAssertEqualWithAccuracy(0.901097590334103, Functions.Gamma(1.65637829899788), Accuracy);
+        XCTAssertEqualWithAccuracy(0.918635851663489, Functions.Gamma(1.74811812639236), Accuracy);
+        
+    }
+    
+    func testFibonacci(){
+        XCTAssertEqual(5358359254990966640871840, Functions.Fibonacci(120))
+    }
+    
+    func testFibonacciPerformance(){
+    return;
+       self.measureBlock() {
+           let f =  Functions.Fibonacci(130) // 5secs +/- 10%
+        }
+    }
+    
+    func testFactorial(){
+        XCTAssertEqualWithAccuracy(479001600, Functions.Factorial(12), Accuracy);
+        XCTAssertEqualWithAccuracy(355687428096000, Functions.Factorial(17), Accuracy);
+        XCTAssertEqualWithAccuracy(40320, Functions.Factorial(8), Accuracy);
+        
+        XCTAssertEqualWithAccuracy(19.9872144957, Functions.FactorialLn(12), Accuracy);
+        XCTAssertEqualWithAccuracy(932.555207148, Functions.FactorialLn(213), Accuracy);
+        XCTAssertEqualWithAccuracy(8.52516136107, Functions.FactorialLn(7), Accuracy);
     }
 }
 
