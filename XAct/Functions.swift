@@ -206,7 +206,7 @@ public class Functions
     }
     
     /**
-     Returns the natural logarithm of the factorial of the given number.
+    Returns the natural logarithm of the factorial of the given number.
     */
     public class func  FactorialLn(value:Int) -> Double
     {
@@ -226,6 +226,88 @@ public class Functions
         }
         
     }
+    /**
+    Returns the regularized lower incomplete beta function.
+    The regularized incomplete beta function (or regularized beta function for short) is defined in terms of the incomplete beta function and the complete beta function.
     
-    
+    */
+    public class func BetaRegularized(var a:Double,var b:Double, var x:Double) -> Double
+    {
+        let MaxIterations = 100;
+        if(a < 0.0)
+        {
+            NSException(name:"BetaRegularized error", reason:"The first argument cannot be a negative arguments.", userInfo:nil).raise()}
+        
+        if(b < 0.0)
+        {
+            NSException(name:"BetaRegularized error", reason:"The second argument cannot be a negative arguments.", userInfo:nil).raise()
+        }
+        if(x < 0.0 || x > 1.0)
+        {NSException(name:"BetaRegularized error", reason:"The third argument must be in the (0,1) interval.", userInfo:nil).raise()
+        }
+        
+        var bt = 0.0
+        
+        if(abs(x) >= Constants.Epsilon && abs(x - 1.0) >= Constants.Epsilon){
+            bt =  exp(GammaLn(a + b) - GammaLn(a) - GammaLn(b) + a * log(x) + b * log(1.0 - x));
+        }
+        
+        var symmetryTransformation = x >= (a + 1.0) / (a + b + 2.0);
+        var eps = Constants.RelativeAccuracy;
+        var fpmin = Constants.SmallestNumberGreaterThanZero / eps;
+        if(symmetryTransformation) {
+            x = 1.0 - x;
+            var swap = a;
+            a = b;
+            b = swap;
+        }
+        
+        var qab = a + b;
+        var qap = a + 1.0;
+        var qam = a - 1.0;
+        var c = 1.0;
+        var d = 1.0 - qab * x / qap;
+        if(abs(d) < fpmin)
+        {
+            d = fpmin;
+        }
+        d = 1.0 / d;
+        var h = d;
+        
+        for(var m = 1, m2 = 2; m <= MaxIterations; m++, m2 += 2) {
+            var aa = Double(m) * (b - Double(m)) * x / ((qam + Double(m2)) * (a + Double(m2)));
+            d = 1.0 + aa * d;
+            
+            if(abs(d) < fpmin)
+            {d = fpmin;}
+            
+            c = 1.0 + aa / c;
+            if(abs(c) < fpmin)
+            {c = fpmin;}
+            
+            d = 1.0 / d;
+            h *= d * c;
+            aa = -(a + Double(m)) * (qab + Double(m)) * x / ((a + Double(m2)) * (qap + Double(m2)));
+            d = 1.0 + aa * d;
+            
+            if(abs(d) < fpmin)
+            { d = fpmin;}
+            
+            c = 1.0 + aa / c;
+            
+            if(abs(c) < fpmin)
+            {c = fpmin;}
+            
+            d = 1.0 / d;
+            var del = d * c;
+            h *= del;
+            
+            if(abs(del - 1.0) <= eps){
+                return symmetryTransformation ? 1.0 - bt * h / a : bt * h / a;
+            }
+        }
+        
+        NSException(name:"BetaRegularized error", reason:"The combination of parameters failed..", userInfo:nil).raise()
+        return 0.0 // compiler does not see NSException as exit point
+    }
 }

@@ -75,8 +75,8 @@ public struct Constants
     public static let Khinchin = 2.6854520010653064453097148354817956938203822939944629530511523455572188595371520028011;
     
     /** 2^(-53)  */
-    // not sure here
-    //public static let RelativeAccuracy = Functions.EpsilonOf(1.0);
+   
+    public static let RelativeAccuracy = 1e-16;
     
     /** 2^(-1074)  */
     public static let SmallestNumberGreaterThanZero = 1e-50;

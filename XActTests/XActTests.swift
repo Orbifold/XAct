@@ -12,6 +12,13 @@ import XCTest
 class FunctionTests : XCTestCase
 {
     let Accuracy = 1e-6
+    
+    func testBetaRegularized()
+    {
+        XCTAssertEqualWithAccuracy(0.651473, Functions.BetaRegularized(0.1, b: 0.22, x: 0.33), Accuracy);
+        XCTAssertEqualWithAccuracy(0.470091, Functions.BetaRegularized(0.55, b: 0.77, x: 0.33), Accuracy);
+    }
+    
     func testGammas(){
         XCTAssertEqualWithAccuracy(1.50856818610322, Functions.GammaLn(3.76835145950317), Accuracy)
         XCTAssertEqualWithAccuracy(1.52395510070524, Functions.GammaLn(3.78128070831299), Accuracy);
