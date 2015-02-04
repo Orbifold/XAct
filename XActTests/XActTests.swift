@@ -47,6 +47,11 @@ class FunctionTests : XCTestCase
         XCTAssertEqualWithAccuracy(0.901097590334103, Functions.Gamma(1.65637829899788), Accuracy);
         XCTAssertEqualWithAccuracy(0.918635851663489, Functions.Gamma(1.74811812639236), Accuracy);
         
+        XCTAssertEqualWithAccuracy(0.864664716763, Functions.GammaRegularized(1, x: 2), Accuracy);
+        XCTAssertEqualWithAccuracy(0.999477741950, Functions.GammaRegularized(3, x: 12), Accuracy);
+        XCTAssertEqualWithAccuracy(0.714943499683, Functions.GammaRegularized(5, x: 6), Accuracy);
+
+        
     }
     
     func testFibonacci(){

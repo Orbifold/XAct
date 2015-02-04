@@ -310,4 +310,57 @@ public class Functions
         NSException(name:"BetaRegularized error", reason:"The combination of parameters failed..", userInfo:nil).raise()
         return 0.0 // compiler does not see NSException as exit point
     }
+    
+    public class func GammaRegularized(  a:Double,   x:Double)-> Double
+    {
+        let   MaxIterations = 100;
+        var eps = Constants.RelativeAccuracy;
+        var fpmin = Constants.SmallestNumberGreaterThanZero / eps;
+        
+        if(a < 0.0 || x < 0.0){
+            NSException(name:"GammaRegularized error", reason:"The The arguments should be positive numbers.", userInfo:nil).raise()
+        }
+        var gln = GammaLn(a);
+        if(x < a + 1.0) {
+            if(x <= 0.0){
+                return 0.0;}
+            var ap = a;
+            var del:Double = 1.0 / a, sum:Double   = 1.0 / a;
+            
+            for(var n = 0; n < MaxIterations; n++) {
+                ++ap;
+                del *= x / ap;
+                sum += del;
+                if(abs(del) < abs(sum) * eps){
+                    return sum * exp(-x + a * log(x) - gln);}
+            }
+        } else {
+            // Continued fraction representation
+            var b = x + 1.0 - a;
+            var c = 1.0 / fpmin;
+            var d = 1.0 / b;
+            var h = d;
+            
+            for(var i = 1; i <= MaxIterations; i++) {
+                var an = -Double(i) * (Double(i) - a);
+                b += 2.0;
+                d = an * d + b;
+                if(abs(d) < fpmin){
+                    d = fpmin;}
+                
+                c = b + an / c;
+                if(abs(c) < fpmin){
+                    c = fpmin;}
+                d = 1.0 / d;
+                var del = d * c;
+                h *= del;
+                
+                if(abs(del - 1.0) <= eps){
+                    return 1.0 - exp(-x + a * log(x) - gln) * h;}
+            }
+        }
+        
+        NSException(name:"GammaRegularized error", reason:"The The arguments should be positive numbers.", userInfo:nil).raise()
+        return Double.NaN
+    }
 }
