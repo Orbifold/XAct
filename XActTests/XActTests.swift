@@ -50,7 +50,23 @@ class FunctionTests : XCTestCase
         XCTAssertEqualWithAccuracy(0.864664716763, Functions.GammaRegularized(1, x: 2), Accuracy);
         XCTAssertEqualWithAccuracy(0.999477741950, Functions.GammaRegularized(3, x: 12), Accuracy);
         XCTAssertEqualWithAccuracy(0.714943499683, Functions.GammaRegularized(5, x: 6), Accuracy);
-
+        
+        
+    }
+    
+    func testErvInverse(){
+        XCTAssertEqualWithAccuracy(0.2724627147267544, Functions.ErfInverse(0.3), Accuracy)
+        XCTAssertEqualWithAccuracy(0.6040031879352371, Functions.ErfInverse(0.607), Accuracy)
+        XCTAssertEqualWithAccuracy(0.1418558907268814, Functions.ErfInverse(0.159), Accuracy)
+        XCTAssertEqualWithAccuracy(1.701751973779214, Functions.ErfInverse(0.9839), Accuracy)
+        
+    }
+    
+    func testInverseGammaRegularized(){
+        //XCTAssertEqualWithAccuracy(1.523473212136419, Functions.InverseGammaRegularized(2, y0: 0.55), Accuracy)
+        XCTAssertEqualWithAccuracy(7.642669868404227, Functions.InverseGammaRegularized(5, y0: 0.122), Accuracy)
+//        XCTAssertEqualWithAccuracy(0.1418558907268814, Functions.ErfInverse(0.159), Accuracy)
+//        XCTAssertEqualWithAccuracy(1.701751973779214, Functions.ErfInverse(0.9839), Accuracy)
         
     }
     
@@ -59,9 +75,9 @@ class FunctionTests : XCTestCase
     }
     
     func testFibonacciPerformance(){
-    return;
-       self.measureBlock() {
-           let f =  Functions.Fibonacci(130) // 5secs +/- 10%
+        return;
+        self.measureBlock() {
+            let f =  Functions.Fibonacci(130) // 5secs +/- 10%
         }
     }
     
@@ -89,16 +105,16 @@ class NumberTests :XCTestCase{
         XCTAssertTrue(!Numbers.IsOdd(40008),"40008 isn't even.");
         XCTAssertTrue(!Numbers.IsOdd(Int.max),"Max isn't even, it's undefined.");
     }
-
+    
     func testIsPowerOfTwo(){
         XCTAssertFalse(Numbers.IsPowerOfTwo(-8),"-8 is not a power of two.");
         XCTAssertTrue(Numbers.IsPowerOfTwo(32),"32 is a power of two.");
- 
+        
     }
     
     func testTruncate(){
         XCTAssertEqual(Numbers.Truncate(2.3), 2.0,"Truncate(2.3) = 2")
-        XCTAssertEqual(Numbers.Truncate(12.53), 12.0,"Truncate(12.53) = 13")        
+        XCTAssertEqual(Numbers.Truncate(12.53), 12.0,"Truncate(12.53) = 13")
         XCTAssertEqual(Numbers.Truncate(-77.03), -77.0,"Truncate(-77.03) = -77")
     }
     func testCeilingToPowerOfTwo(){
@@ -127,7 +143,7 @@ class NumberTests :XCTestCase{
     
     func testAlmostEqual(){
         XCTAssertTrue(Numbers.AlmostEqual(2.334400000000000091, b: 2.3344, numberOfDigits: 5))
-         XCTAssertTrue(Numbers.AlmostEqual(2.334, b: 2.334000000001, numberOfDigits: 3))
+        XCTAssertTrue(Numbers.AlmostEqual(2.334, b: 2.334000000001, numberOfDigits: 3))
     }
 }
 
@@ -167,9 +183,9 @@ class MultiplyWithCarryRandomGeneratorTests: XCTestCase {
         self.measureBlock() {
             for (var i = 0; i < 1000; ++i)
             {
-                 MultiplyWithCarryRandomGenerator.GetGamma(10, scale: 2);
+                MultiplyWithCarryRandomGenerator.GetGamma(10, scale: 2);
             }
-
+            
         }
     }
     

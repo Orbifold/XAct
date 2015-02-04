@@ -9,11 +9,104 @@
 import Foundation
 
 /**
+Epsilon extensions of the Double type.
+*/
+public extension Double{
+    /**
+    Returns whether the number is close to zero.
+    
+    :param: accuracy The threshold within which the number is considered zero. Default is Epsilon.
+    */
+    public func IsZero(accuracy:Double = Constants.Epsilon) -> Bool{
+        return abs(self) < accuracy;
+    }
+    
+    /**
+    Returns whether the number is considered of measure zero.
+    */
+    public func IsVerySmall() -> Bool{
+        return abs(self) < Constants.Epsilon;
+    }
+    
+    /**
+    Returns whether the number is equal to the given number in an Epsilon sense.
+    */
+    public func IsEqualTo(value:Double) -> Bool
+    {
+        return abs(self - value) < Constants.Epsilon;
+    }
+    
+    /**
+    Returns whether the number is close to the given one in an Epsilon sense.
+    */
+    public func AreClose(value:Double) -> Bool
+    {
+        return self.IsEqualTo(value) || Double.IsVerySmall(self - value)();
+    }
+    
+    /**
+    Returns whether the number is not close to the given one in an Epsilon sense.
+    */
+    public func AreNotClose(value:Double) -> Bool
+    {
+        return !self.AreClose(value)
+    }
+    
+    /**
+    Returns whether the number is less than or close to the given one in an Epsilon sense.
+    */
+    public func IsLessThanOrClose(value:Double) -> Bool
+    {
+        return self < value || self.AreClose(value);
+    }
+}
+
+/**
 Collects a variety of mathematical functions.
 */
 public class Functions
 {
     struct Static{
+        static var ErfcChebCoef = [-1.3026537197817094,
+            6.4196979235649026e-1, 1.9476473204185836e-2,
+            -9.561514786808631e-3, -9.46595344482036e-4,
+            3.66839497852761e-4, 4.2523324806907e-5,
+            -2.0278578112534e-5, -1.624290004647e-6
+        ];
+        
+        init(){
+            // Swift compiler has a problem with long lines, shame...
+            Static.ErfcChebCoef += [ 1.303655835580e-6, 1.5626441722e-8, -8.5238095915e-8,
+                6.529054439e-9, 5.059343495e-9, -9.91364156e-10,
+                -2.27365122e-10, 9.6467911e-11, 2.394038e-12
+            ]
+            Static.ErfcChebCoef += [-6.886027e-12, 8.94487e-13, 3.13092e-13,
+                -1.12708e-13, 3.81e-16, 7.106e-15, -1.523e-15,
+                -9.4e-17, 1.21e-16, -2.8e-17]
+        }
+        static var ErfInvA = [
+            -3.969683028665376e+01, 2.209460984245205e+02,
+            -2.759285104469687e+02, 1.383577518672690e+02,
+            -3.066479806614716e+01, 2.506628277459239e+00
+        ];
+        
+        static var   ErfInvB = [
+            -5.447609879822406e+01, 1.615858368580409e+02,
+            -1.556989798598866e+02, 6.680131188771972e+01,
+            -1.328068155288572e+01
+        ];
+        
+        static var ErfInvC = [
+            -7.784894002430293e-03, -3.223964580411365e-01,
+            -2.400758277161838e+00, -2.549732539343734e+00,
+            4.374664141464968e+00, 2.938163982698783e+00
+        ];
+        
+        static var ErfInvD = [
+            7.784695709041462e-03, 3.224671290700398e-01,
+            2.445134137142996e+00, 3.754408661907416e+00
+        ];
+        
         static var FactorialLnCache = [Int:Double]()
         static var FibonacciPrecomp:[Double] = [
             0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040,1346269,2178309,3524578,5702887,9227465,14930352,24157817,39088169,63245986,102334155,165580141,267914296,433494437,701408733,1134903170,1836311903,2971215073,4807526976,7778742049,12586269025,20365011074,32951280099,53316291173,86267571272,139583862445,225851433717,365435296162,591286729879,956722026041,1548008755920,2504730781961,4052739537881,6557470319842,10610209857723,17167680177565,27777890035288,44945570212853,72723460248141,117669030460994,190392490709135,308061521170129,498454011879264,806515533049393,1304969544928657,2111485077978050,3416454622906707,5527939700884757,8944394323791464,14472334024676221,23416728348467685,37889062373143906,61305790721611591,99194853094755497,160500643816367088,259695496911122585,420196140727489673,679891637638612258,1100087778366101931,1779979416004714189,2880067194370816120,4660046610375530309,7540113804746346429,12200160415121876738,19740274219868223167,31940434634990099905,51680708854858323072,83621143489848422977,135301852344706746049,218922995834555169026,354224848179261915075
@@ -311,6 +404,10 @@ public class Functions
         return 0.0 // compiler does not see NSException as exit point
     }
     
+    /**
+    Returns the regularized lower incomplete gamma function
+    P(a,x) = 1/Gamma(a) * int(exp(-t)t^(a-1),t=0..x) for real a > 0 and x > 0.
+    */
     public class func GammaRegularized(  a:Double,   x:Double)-> Double
     {
         let   MaxIterations = 100;
@@ -362,5 +459,232 @@ public class Functions
         
         NSException(name:"GammaRegularized error", reason:"The The arguments should be positive numbers.", userInfo:nil).raise()
         return Double.NaN
+    }
+    
+    /**
+    Returns the inverse error function obtained as the solution for z in s=erf(z). 
+    */
+    public class func ErfInverse(var x:Double) -> Double
+    {
+        
+        x = 0.5 * (x + 1.0);
+        
+        // Define break-points.
+        let Plow = 0.02425;
+        let Phigh = 1 - Plow;
+        
+        var q:Double;
+        
+        
+        var A0 = Static.ErfInvA[0]
+        var A1 = Static.ErfInvA[1]
+        var A2 = Static.ErfInvA[2]
+        var A3 = Static.ErfInvA[3]
+        var A4 = Static.ErfInvA[4]
+        var A5 = Static.ErfInvA[5]
+        
+        var B0 = Static.ErfInvB[0]
+        var B1 = Static.ErfInvB[1]
+        var B2 = Static.ErfInvB[2]
+        var B3 = Static.ErfInvB[3]
+        var B4 = Static.ErfInvB[4]
+        
+        var C0 = Static.ErfInvC[0]
+        var C1 = Static.ErfInvC[1]
+        var C2 = Static.ErfInvC[2]
+        var C3 = Static.ErfInvC[3]
+        var C4 = Static.ErfInvC[4]
+        var C5 = Static.ErfInvC[5]
+        
+        var D0 = Static.ErfInvD[0]
+        var D1 = Static.ErfInvD[1]
+        var D2 = Static.ErfInvD[2]
+        var D3 = Static.ErfInvD[3]
+        
+        // Rational approximation for lower region:
+        if(x < Plow) {
+            q = sqrt(-2 * log(x));
+            return (((((C0 * q + C1) * q + C2) * q + C3) * q + C4) * q + C5) / ((((D0 * q + D1) * q + D2) * q + D3) * q + 1) * Constants.Sqrt1Over2;
+        }
+        
+        // Rational approximation for upper region:
+        if(Phigh < x) {
+            q = sqrt(-2 * log(1 - x));
+            var nom = -1 * (((((C0 * q + C1) * q + C2) * q + C3) * q + C4) * q + C5)
+            return  nom / ((((D0 * q + D1) * q + D2) * q + D3) * q + 1) * Constants.Sqrt1Over2;
+        }
+        
+        // Rational approximation for central region:
+        q = x - 0.5;
+        var r = q * q;
+        var nom = (((((A0 * r + A1) * r + A2) * r + A3) * r + A4) * r + A5) * q
+        return nom / (((((B0 * r + B1) * r + B2) * r + B3) * r + B4) * r + 1) * Constants.Sqrt1Over2;
+    }
+    
+    
+    func ErfcCheb(x:Double) -> Double
+    {
+        
+        var d = 0.0;
+        var dd = 0.0;
+        
+        if(x < 0.0){
+            NSException(name:"ErfcCheb error", reason:"The parameter should be a positive number.", userInfo:nil).raise()
+        }
+        
+        var t = 2.0 / (2.0 + x);
+        var ty = 4.0 * t - 2.0;
+        
+        for(var j = Static.ErfcChebCoef.count - 1; j > 0; j--) {
+            var tmp = d;
+            d = ty * d - dd + Static.ErfcChebCoef[j];
+            dd = tmp;
+        }
+        return t * exp(-x * x + 0.5 * (Static.ErfcChebCoef[0] + ty * d) - dd);
+    }
+    
+    public class func InverseGammaRegularized(  a:Double, var  y0:Double) -> Double
+    {
+        let Epsilon = 0.000000000000001;
+        let BigNumber = 4503599627370496.0;
+        let Threshold = 5 * Epsilon;
+        
+        
+        if(a < 0 || a.IsZero() || y0 < 0 || y0 > 1) {
+            return Double.NaN;
+        }
+        
+        if(y0.IsZero()) {
+            return 0;
+        }
+        
+        if(y0.IsEqualTo(1)) {
+            return Double.infinity;
+        }
+        
+        y0 = 1 - y0;
+        
+        var xUpper = BigNumber;
+        var xLower = 0.0;
+        var yUpper = 1.0;
+        var yLower = 0.0;
+        
+        // Initial Guess
+        var d = 1 / (9 * a);
+        var y = 1 - d - (0.98 * Constants.Sqrt2 * ErfInverse((2.0 * y0) - 1.0) * sqrt(d));
+        var x = a * y * y * y;
+        var lgm = GammaLn(a);
+        
+        for(var i = 0; i < 10; i++) {
+            if(x < xLower || x > xUpper) {
+                d = 0.0625;
+                break;
+            }
+            
+            y = 1 - GammaRegularized(a, x: x);
+            if(y < yLower || y > yUpper) {
+                d = 0.0625;
+                break;
+            }
+            
+            if(y < y0) {
+                xUpper = x;
+                yLower = y;
+            } else {
+                xLower = x;
+                yUpper = y;
+            }
+            
+            d = ((a - 1) * log(x)) - x - lgm;
+            if(d < -709.78271289338399) {
+                d = 0.0625;
+                break;
+            }
+            
+            d = -exp(d);
+            d = (y - y0) / d;
+            if(abs(d / x) < Epsilon) {
+                return x;
+            }
+            
+            if((d > (x / 4)) && (y0 < 0.05)) {
+                // Naive heuristics for cases near the singularity
+                d = x / 10;
+            }
+            
+            x -= d;
+        }
+        
+        if(xUpper == BigNumber) {
+            if(x <= 0) {
+                x = 1;
+            }
+            
+            while(xUpper == BigNumber) {
+                x = (1 + d) * x;
+                y = 1 - GammaRegularized(a, x: x);
+                if(y < y0) {
+                    xUpper = x;
+                    yLower = y;
+                    break;
+                }
+                
+                d = d + d;
+            }
+        }
+        
+        var dir = 0;
+        d = 0.5;
+        for(var i = 0; i < 400; i++) {
+            x = xLower + (d * (xUpper - xLower));
+            y = 1 - GammaRegularized(a, x: x);
+            lgm = (xUpper - xLower) / (xLower + xUpper);
+            if(abs(lgm) < Threshold) {
+                return x;
+            }
+            
+            lgm = (y - y0) / y0;
+            if(abs(lgm) < Threshold) {
+                return x;
+            }
+            
+            if(x <= 0.0) {
+                return 0.0;
+            }
+            
+            if(y >= y0) {
+                xLower = x;
+                yUpper = y;
+                if(dir < 0) {
+                    dir = 0;
+                    d = 0.5;
+                } else {
+                    if(dir > 1) {
+                        d = (0.5 * d) + 0.5;
+                    } else {
+                        d = (y0 - yLower) / (yUpper - yLower);
+                    }
+                }
+                
+                dir = dir + 1;
+            } else {
+                xUpper = x;
+                yLower = y;
+                if(dir > 0) {
+                    dir = 0;
+                    d = 0.5;
+                } else {
+                    if(dir < -1) {
+                        d = 0.5 * d;
+                    } else {
+                        d = (y0 - yLower) / (yUpper - yLower);
+                    }
+                }
+                
+                dir = dir - 1;
+            }
+        }
+        
+        return x;
     }
 }
