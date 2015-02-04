@@ -63,11 +63,8 @@ class FunctionTests : XCTestCase
     }
     
     func testInverseGammaRegularized(){
-        //XCTAssertEqualWithAccuracy(1.523473212136419, Functions.InverseGammaRegularized(2, y0: 0.55), Accuracy)
-        XCTAssertEqualWithAccuracy(7.642669868404227, Functions.InverseGammaRegularized(5, y0: 0.122), Accuracy)
-//        XCTAssertEqualWithAccuracy(0.1418558907268814, Functions.ErfInverse(0.159), Accuracy)
-//        XCTAssertEqualWithAccuracy(1.701751973779214, Functions.ErfInverse(0.9839), Accuracy)
-        
+        XCTAssertEqualWithAccuracy(10, Functions.InverseGammaRegularized(0.5, y0: 0.99999225578356895592), Accuracy);
+        XCTAssertEqualWithAccuracy(1, Functions.InverseGammaRegularized(1, y0: 0.63212055882855767840), Accuracy);
     }
     
     func testFibonacci(){

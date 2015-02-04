@@ -432,7 +432,6 @@ public class Functions
                     return sum * exp(-x + a * log(x) - gln);}
             }
         } else {
-            // Continued fraction representation
             var b = x + 1.0 - a;
             var c = 1.0 / fpmin;
             var d = 1.0 / b;
@@ -545,7 +544,7 @@ public class Functions
     
     public class func InverseGammaRegularized(  a:Double, var  y0:Double) -> Double
     {
-        let Epsilon = 0.000000000000001;
+        let Epsilon = 1e-15;
         let BigNumber = 4503599627370496.0;
         let Threshold = 5 * Epsilon;
         
@@ -555,7 +554,7 @@ public class Functions
         }
         
         if(y0.IsZero()) {
-            return 0;
+            return 0.0;
         }
         
         if(y0.IsEqualTo(1)) {
@@ -564,12 +563,11 @@ public class Functions
         
         y0 = 1 - y0;
         
-        var xUpper = BigNumber;
-        var xLower = 0.0;
-        var yUpper = 1.0;
-        var yLower = 0.0;
+        var xUpper:Double = BigNumber;
+        var xLower:Double = 0.0;
+        var yUpper:Double = 1.0;
+        var yLower:Double = 0.0;
         
-        // Initial Guess
         var d = 1 / (9 * a);
         var y = 1 - d - (0.98 * Constants.Sqrt2 * ErfInverse((2.0 * y0) - 1.0) * sqrt(d));
         var x = a * y * y * y;
