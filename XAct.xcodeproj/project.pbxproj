@@ -18,6 +18,16 @@
 		D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */; };
 		D06A64921A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
 		D06A64931A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
+		D0B0D92D1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
+		D0B0D92E1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
+		D0B0D9301A86389E00751E60 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92F1A86389E00751E60 /* Math.swift */; };
+		D0B0D9311A86389E00751E60 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92F1A86389E00751E60 /* Math.swift */; };
+		D0D6FB061A8342AB00AD4EB7 /* MarkovLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */; };
+		D0D6FB071A8342AB00AD4EB7 /* MarkovLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */; };
+		D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB091A834B0B00AD4EB7 /* Queue.swift */; };
+		D0D6FB0B1A834B0B00AD4EB7 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB091A834B0B00AD4EB7 /* Queue.swift */; };
+		D0D6FB0D1A835F2800AD4EB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */; };
+		D0D6FB0E1A835F2800AD4EB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,11 @@
 		D03B49C61A78A871003AAE6F /* XActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XActTests.swift; sourceTree = "<group>"; };
 		D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWCGenerator.swift; sourceTree = "<group>"; };
 		D06A64911A7CB38300D00421 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovChain.swift; sourceTree = "<group>"; };
+		D0B0D92F1A86389E00751E60 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovLink.swift; sourceTree = "<group>"; };
+		D0D6FB091A834B0B00AD4EB7 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +131,15 @@
 		D03B49B61A78A871003AAE6F /* XAct */ = {
 			isa = PBXGroup;
 			children = (
+				D0D6FB081A8348D200AD4EB7 /* Data Structures */,
+				D0D6FB031A83428600AD4EB7 /* Data Generators */,
 				D01829F21A7A82370030C9E7 /* Analysis */,
 				D01829F01A7A7BE30030C9E7 /* Statistics */,
 				D01829EC1A7A7BB20030C9E7 /* Number */,
 				D03B49B91A78A871003AAE6F /* XAct.h */,
 				D03B49B71A78A871003AAE6F /* Supporting Files */,
+				D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */,
+				D0B0D92F1A86389E00751E60 /* Math.swift */,
 			);
 			path = XAct;
 			sourceTree = "<group>";
@@ -148,6 +167,31 @@
 				D03B49C51A78A871003AAE6F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0D6FB031A83428600AD4EB7 /* Data Generators */ = {
+			isa = PBXGroup;
+			children = (
+				D0D6FB041A83429400AD4EB7 /* Markov */,
+			);
+			name = "Data Generators";
+			sourceTree = "<group>";
+		};
+		D0D6FB041A83429400AD4EB7 /* Markov */ = {
+			isa = PBXGroup;
+			children = (
+				D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */,
+				D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */,
+			);
+			name = Markov;
+			sourceTree = "<group>";
+		};
+		D0D6FB081A8348D200AD4EB7 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				D0D6FB091A834B0B00AD4EB7 /* Queue.swift */,
+			);
+			name = "Data Structures";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +302,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */,
+				D0B0D9301A86389E00751E60 /* Math.swift in Sources */,
+				D0D6FB061A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
 				D03B49D11A78A8EA003AAE6F /* MWCGenerator.swift in Sources */,
 				D01829F41A7A824B0030C9E7 /* Constants.swift in Sources */,
 				D06A64921A7CB38300D00421 /* Functions.swift in Sources */,
+				D0D6FB0D1A835F2800AD4EB7 /* Extensions.swift in Sources */,
+				D0B0D92D1A85F1A500751E60 /* MarkovChain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */,
+				D0D6FB0B1A834B0B00AD4EB7 /* Queue.swift in Sources */,
 				D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */,
+				D0D6FB0E1A835F2800AD4EB7 /* Extensions.swift in Sources */,
 				D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D0D6FB071A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
 				D06A64931A7CB38300D00421 /* Functions.swift in Sources */,
 				D01829F51A7A824B0030C9E7 /* Constants.swift in Sources */,
+				D0B0D92E1A85F1A500751E60 /* MarkovChain.swift in Sources */,
+				D0B0D9311A86389E00751E60 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

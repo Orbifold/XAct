@@ -8,6 +8,39 @@
 
 import UIKit
 import XCTest
+class MathTests : XCTestCase{
+    
+    func testRandom(){
+        for _ in 1...50{
+            var x = Math.Random()
+            XCTAssertTrue(x > 0 && x < 1, "Number \(x) is not really random.")
+        }
+        
+        for _ in 1...50{
+            var x = Math.Random(1,max: 100)
+            XCTAssertTrue(x >= 1  && x < 100, "Number \(x) is not really random within the (1, 100) interval.")
+        }
+    }
+}
+class DataStructuresTests : XCTestCase{
+    
+    func testQueueSimple(){
+        var q = Queue<Int>();
+        q.enQueue(34)
+        q.enQueue(-2)
+        q.enQueue(0)
+        XCTAssertEqual(34,q.deQueue()!)
+        XCTAssertEqual(-2,q.deQueue()!)
+        XCTAssertEqual(0,q.deQueue()!)
+    }
+    func testQueueSequence(){
+        var q = Queue<Character>()
+        var s = "p-adic number theory";  
+        q.enQueue(SequenceOf<Character>(Array(s)))
+        XCTAssertEqual(Character("p"), q.peek()!)
+        XCTAssertEqual(s.length,q.count)
+    }
+}
 
 class FunctionTests : XCTestCase
 {

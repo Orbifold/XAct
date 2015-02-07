@@ -8,10 +8,7 @@
 
 import UIKit
 public typealias DateTime = NSDate
-struct Math {
-    static var Pi:Double = 3.141592
-    
-}
+ 
 /**
  - For some issues with the data types in this implementation see http://stackoverflow.com/questions/28186817/multiply-with-carry-in-swift
  - Info about the algorithm can be found here: http://en.wikipedia.org/wiki/Random_number_generation
