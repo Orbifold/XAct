@@ -20,6 +20,7 @@ class MarkovLink<T:Hashable>{
         self.count = 0
         self.links = [T: MarkovLink<T>]()
     }
+    
     func Generate(start:T, length:Int, var max:Int) -> SequenceOf<MarkovLink<T>>
     {
         var window =  Queue<T>(capacity: length);
@@ -42,13 +43,13 @@ class MarkovLink<T:Hashable>{
         return SequenceOf<MarkovLink<T>>(seq);
     }
     
-    func Process( input:SequenceOf<T>,  length:Int)
+    func Process( input:SequenceOf<T>, length:Int)
     {
         // holds the current window
         var window = Queue<T>(capacity: length);
         
         // process the input, a window at a time (overlapping)
-        for   part in input
+        for part in input
         {
             if (window.count == length){
                 window.deQueue();
@@ -72,6 +73,7 @@ class MarkovLink<T:Hashable>{
         
         return link!;
     }
+    
     func SelectRandomLink() -> MarkovLink<T>
     {
         var markovLink:MarkovLink<T>?;

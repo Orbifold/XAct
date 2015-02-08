@@ -24,4 +24,12 @@ public struct Math {
     public static func Random(min:Int,max:Int) -> Int{
         return MultiplyWithCarryRandomGenerator.GetUniform(min,max: max);
     }
+    
+    public static func Sin(x:Double) ->Double{
+        return sin(x)
+    }
+    
+    public static func Sin(seq:SequenceOf<Double>) -> SequenceOf<Double>{
+        return SequenceOf<Double>(map(seq,{sin($0)}))
+    }
 }

@@ -23,6 +23,11 @@ public class Queue<T> : SequenceType{
         self.capacity = capacity
     }
     
+    init(array:[T]){
+        self.capacity = Int.max
+        for s in array { self.enQueue(s)}
+    }
+    
     public func generate() -> QueueGenerator<T>{
         
         return QueueGenerator<T>(q: self.top);
@@ -143,6 +148,9 @@ public class QueueGenerator<T>: GeneratorType {
         if let c = self.current {
             
             self.current = c.next;
+        }
+        else{
+            return nil
         }
         return r!.key!
     }
