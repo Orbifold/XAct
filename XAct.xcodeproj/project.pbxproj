@@ -18,6 +18,8 @@
 		D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */; };
 		D06A64921A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
 		D06A64931A7CB38300D00421 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A64911A7CB38300D00421 /* Functions.swift */; };
+		D0AFC8391A8A460000B648F4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AFC8381A8A460000B648F4 /* Node.swift */; };
+		D0AFC83A1A8A460000B648F4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AFC8381A8A460000B648F4 /* Node.swift */; };
 		D0B0D92D1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
 		D0B0D92E1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
 		D0B0D9301A86389E00751E60 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92F1A86389E00751E60 /* Math.swift */; };
@@ -51,6 +53,7 @@
 		D03B49C61A78A871003AAE6F /* XActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XActTests.swift; sourceTree = "<group>"; };
 		D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWCGenerator.swift; sourceTree = "<group>"; };
 		D06A64911A7CB38300D00421 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		D0AFC8381A8A460000B648F4 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovChain.swift; sourceTree = "<group>"; };
 		D0B0D92F1A86389E00751E60 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovLink.swift; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D6FB091A834B0B00AD4EB7 /* Queue.swift */,
+				D0AFC8381A8A460000B648F4 /* Node.swift */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -302,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D0AFC8391A8A460000B648F4 /* Node.swift in Sources */,
 				D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */,
 				D0B0D9301A86389E00751E60 /* Math.swift in Sources */,
 				D0D6FB061A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
@@ -320,6 +325,7 @@
 				D03B49C71A78A871003AAE6F /* XActTests.swift in Sources */,
 				D0D6FB0B1A834B0B00AD4EB7 /* Queue.swift in Sources */,
 				D03B49D21A78A9E2003AAE6F /* MWCGenerator.swift in Sources */,
+				D0AFC83A1A8A460000B648F4 /* Node.swift in Sources */,
 				D0D6FB0E1A835F2800AD4EB7 /* Extensions.swift in Sources */,
 				D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
 				D0D6FB071A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
