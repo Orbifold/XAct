@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "Process(_:length:)"
-            landmarkType = "5">
+            endingLineNumber = "52">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -60,9 +58,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "Process(_:length:)"
-            landmarkType = "5">
+            endingLineNumber = "54">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -106,9 +102,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "ProcessWindow(_:)"
-            landmarkType = "5">
+            endingLineNumber = "162">
             <Locations>
                <Location
                   shouldBeEnabled = "No"

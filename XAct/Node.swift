@@ -166,11 +166,17 @@ public class Node<TNodeData, TEdgeData>: Equatable
         }
     }
     
+    /**
+    Removes the given edge from this node.
+    */
     public func RemoveEdge(edge:Edge<TNodeData, TEdgeData>){
         self.RemoveIncomingEdge(edge);
         self.RemoveOutgoingEdge(edge);
     }
     
+    /**
+    Removes the given, incoming edge from this node.
+    */
     public func RemoveIncomingEdge(edge:Edge<TNodeData, TEdgeData>){
         if (contains(self.incoming, edge))
         {
@@ -183,6 +189,9 @@ public class Node<TNodeData, TEdgeData>: Equatable
         }
     }
     
+    /**
+    Removes the given, outgoing edge from this node.
+    */
     public func RemoveOutgoingEdge(edge:Edge<TNodeData, TEdgeData>){
         if (contains(self.outgoing, edge))
         {
@@ -198,28 +207,4 @@ public class Node<TNodeData, TEdgeData>: Equatable
 
 public func ==<TNodeData, TEdgeData>(lhs: Node<TNodeData, TEdgeData>, rhs: Node<TNodeData, TEdgeData>) -> Bool{
     return lhs.Id == rhs.Id
-}
-
-/**
-The edge, connection or link of a graph.
-*/
-public class Edge<TNodeData, TEdgeData>: Equatable
-{
-    var Sink:Node<TNodeData, TEdgeData>?;
-    var Source:Node<TNodeData, TEdgeData>?;
-    private var Uid:String;
-    init(){
-        self.Source = nil;
-        self.Sink = nil;
-        self.Uid = NSUUID().UUIDString;
-    }
-    
-    public func GetOppositeNode(node:Node<TNodeData, TEdgeData>) -> Node<TNodeData, TEdgeData>?
-    {
-        return node == self.Sink ? self.Source : self.Sink;
-    }
-}
-
-public func ==<TNodeData, TEdgeData>(lhs: Edge<TNodeData, TEdgeData>, rhs: Edge<TNodeData, TEdgeData>) -> Bool{
-    return lhs.Uid == rhs.Uid
 }
