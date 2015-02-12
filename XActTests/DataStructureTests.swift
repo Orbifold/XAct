@@ -45,3 +45,36 @@ class QueueTests : XCTestCase{
         XCTAssertEqual(a, ["a", "b", "c"])
     }
 }
+
+class StackTests : XCTestCase{
+    func testBasic(){
+        var stack = Stack<Int>();
+        stack.Push(32)
+        stack.Push(-8)
+        XCTAssertEqual(stack.Count,2)
+        var top = stack.Pop()
+        XCTAssertTrue(top != nil)
+        XCTAssertEqual(top!, -8)
+        XCTAssertEqual(stack.Count,1)
+        top = stack.Pop()
+        XCTAssertTrue(top != nil)
+        XCTAssertEqual(top!, 32)
+        XCTAssertEqual(stack.Count,0)
+        top = stack.Pop()
+        XCTAssertTrue(top == nil)
+        XCTAssertEqual(stack.Count,0)
+        
+    }
+}
+
+class LinkedListTests: XCTestCase{
+    func testBasic(){
+        var ll = LinkedList<Int>()
+        ll.AddLink(2)
+        ll.AddLink(3)
+        XCTAssertEqual(ll.count,2)
+        XCTAssertTrue(ll.Head != nil)
+        XCTAssertEqual(ll.Head.key, 2)
+        XCTAssertEqual(ll.Head.next!.key, 3)
+    }
+}

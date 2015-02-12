@@ -25,6 +25,10 @@
 		D0961F711A8BCD0F008628EC /* MWCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F701A8BCD0F008628EC /* MWCTests.swift */; };
 		D0961F731A8BCD42008628EC /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F721A8BCD42008628EC /* FunctionsTests.swift */; };
 		D0961F751A8BCD5B008628EC /* NumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F741A8BCD5B008628EC /* NumberTests.swift */; };
+		D0961F771A8BCEA0008628EC /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F761A8BCEA0008628EC /* Stack.swift */; };
+		D0961F781A8BCEA0008628EC /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F761A8BCEA0008628EC /* Stack.swift */; };
+		D0961F7A1A8BCEDE008628EC /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F791A8BCEDE008628EC /* LinkedList.swift */; };
+		D0961F7B1A8BCEDE008628EC /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0961F791A8BCEDE008628EC /* LinkedList.swift */; };
 		D0AFC8391A8A460000B648F4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AFC8381A8A460000B648F4 /* Node.swift */; };
 		D0AFC83A1A8A460000B648F4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AFC8381A8A460000B648F4 /* Node.swift */; };
 		D0B0D92D1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
@@ -66,6 +70,8 @@
 		D0961F701A8BCD0F008628EC /* MWCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWCTests.swift; sourceTree = "<group>"; };
 		D0961F721A8BCD42008628EC /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		D0961F741A8BCD5B008628EC /* NumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTests.swift; sourceTree = "<group>"; };
+		D0961F761A8BCEA0008628EC /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		D0961F791A8BCEDE008628EC /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		D0AFC8381A8A460000B648F4 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovChain.swift; sourceTree = "<group>"; };
 		D0B0D92F1A86389E00751E60 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
@@ -221,6 +227,8 @@
 			children = (
 				D0281A471A8BC89D00AD844C /* Graph */,
 				D0D6FB091A834B0B00AD4EB7 /* Queue.swift */,
+				D0961F761A8BCEA0008628EC /* Stack.swift */,
+				D0961F791A8BCEDE008628EC /* LinkedList.swift */,
 			);
 			name = "Data Structures";
 			sourceTree = "<group>";
@@ -336,12 +344,14 @@
 				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
 				D0AFC8391A8A460000B648F4 /* Node.swift in Sources */,
 				D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */,
+				D0961F771A8BCEA0008628EC /* Stack.swift in Sources */,
 				D0B0D9301A86389E00751E60 /* Math.swift in Sources */,
 				D0D6FB061A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
 				D03B49D11A78A8EA003AAE6F /* MWCGenerator.swift in Sources */,
 				D01829F41A7A824B0030C9E7 /* Constants.swift in Sources */,
 				D06A64921A7CB38300D00421 /* Functions.swift in Sources */,
 				D0D6FB0D1A835F2800AD4EB7 /* Extensions.swift in Sources */,
+				D0961F7A1A8BCEDE008628EC /* LinkedList.swift in Sources */,
 				D0B0D92D1A85F1A500751E60 /* MarkovChain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,8 +368,10 @@
 				D0AFC83A1A8A460000B648F4 /* Node.swift in Sources */,
 				D0D6FB0E1A835F2800AD4EB7 /* Extensions.swift in Sources */,
 				D01829EF1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
+				D0961F7B1A8BCEDE008628EC /* LinkedList.swift in Sources */,
 				D0D6FB071A8342AB00AD4EB7 /* MarkovLink.swift in Sources */,
 				D0961F731A8BCD42008628EC /* FunctionsTests.swift in Sources */,
+				D0961F781A8BCEA0008628EC /* Stack.swift in Sources */,
 				D06A64931A7CB38300D00421 /* Functions.swift in Sources */,
 				D0961F751A8BCD5B008628EC /* NumberTests.swift in Sources */,
 				D01829F51A7A824B0030C9E7 /* Constants.swift in Sources */,
