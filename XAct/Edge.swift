@@ -12,7 +12,7 @@ import Foundation
 /**
 The edge, connection or link of a graph.
 */
-public class Edge<TNodeData, TEdgeData>: Equatable
+public class Edge<TNodeData, TEdgeData>: Equatable, IGraphElement
 {
     /**
     Gets or sets the sink, end or target of this edge.
@@ -30,7 +30,11 @@ public class Edge<TNodeData, TEdgeData>: Equatable
     var Weight:Double?
     
     private var Uid:String;
-    
+    /**
+    Gets or sets whether this edge is part of a directed graph or
+    whether the direction of this edge matters.
+    */
+    var IsDirected:Bool;
     /**
     Instantiates a new edge.
     */
@@ -38,6 +42,8 @@ public class Edge<TNodeData, TEdgeData>: Equatable
         self.Source = nil;
         self.Sink = nil;
         self.Uid = NSUUID().UUIDString;
+        self.IsDirected = true;
+
     }
     
     /**

@@ -2,4 +2,80 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XAct/Graph.swift"
+            timestampString = "445632348.569349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "AreConnected(_:to:anyDirection:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XActTests.Graph.AreConnected &lt;A, B&gt;(XActTests.Graph&lt;A, B&gt;)(Swift.Int, to : Swift.Int, anyDirection : Swift.Bool) -&gt; Swift.Bool"
+                  moduleName = "XActTests"
+                  urlString = "file:///Users/Swa/Projects/XAct-Swift/XAct/Graph.swift"
+                  timestampString = "445632348.963468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "227">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XActTests.Graph.AreConnected &lt;A, B&gt;(XActTests.Graph&lt;A, B&gt;)(Swift.Int, to : Swift.Int, anyDirection : Swift.Bool) -&gt; Swift.Bool"
+                  moduleName = "XActTests"
+                  urlString = "file:///Users/Swa/Projects/XAct-Swift/XAct/Graph.swift"
+                  timestampString = "445632348.963658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "498">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XAct.Graph.AreConnected &lt;A, B&gt;(XAct.Graph&lt;A, B&gt;)(Swift.Int, to : Swift.Int, anyDirection : Swift.Bool) -&gt; Swift.Bool"
+                  moduleName = "XAct"
+                  urlString = "file:///Users/Swa/Projects/XAct-Swift/XAct/Graph.swift"
+                  timestampString = "445632348.968787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "227">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "XAct.Graph.AreConnected &lt;A, B&gt;(XAct.Graph&lt;A, B&gt;)(Swift.Int, to : Swift.Int, anyDirection : Swift.Bool) -&gt; Swift.Bool"
+                  moduleName = "XAct"
+                  urlString = "file:///Users/Swa/Projects/XAct-Swift/XAct/Graph.swift"
+                  timestampString = "445632348.96896"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "498">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

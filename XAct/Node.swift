@@ -11,7 +11,7 @@ import Foundation
 /**
 The node or vertex of a graph.
 */
-public class Node<TNodeData, TEdgeData>: Equatable
+public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
 {
     
     private var incoming:[Edge<TNodeData, TEdgeData>]
@@ -51,7 +51,7 @@ public class Node<TNodeData, TEdgeData>: Equatable
         self.IsDirected = true;
         self.Uid = NSUUID().UUIDString
     }
-    
+        
     /**
     Instantiates a new Node with the given identifier.
     
@@ -80,7 +80,7 @@ public class Node<TNodeData, TEdgeData>: Equatable
     /**
     Gets or sets the incoming edges.
     */
-    var Incoming:[Edge<TNodeData, TEdgeData>]{
+    public var Incoming:[Edge<TNodeData, TEdgeData>]{
         get
         {
             return self.IsDirected ? self.incoming : self.allEdges;
@@ -94,7 +94,7 @@ public class Node<TNodeData, TEdgeData>: Equatable
     /**
     Gets or sets the outgoing edges.
     */
-    var Outgoing:[Edge<TNodeData, TEdgeData>]{
+    public var Outgoing:[Edge<TNodeData, TEdgeData>]{
         get
         {
             return self.IsDirected ? self.outgoing : self.allEdges;
@@ -108,7 +108,7 @@ public class Node<TNodeData, TEdgeData>: Equatable
     /**
     Gets the children nodes of this node. The children have an edge from this node to them.
     */
-    var Children:[Node<TNodeData, TEdgeData>] {
+    public var Children:[Node<TNodeData, TEdgeData>] {
         get
         {
             if(self.IsDirected)
@@ -202,7 +202,15 @@ public class Node<TNodeData, TEdgeData>: Equatable
                 self.allEdges.removeAtIndex(index)
             }        }
     }
-     
+    public func AddOutgoingEdge(edge:Edge<TNodeData, TEdgeData>){
+        self.outgoing.append(edge);
+        self.allEdges.append(edge);
+    }
+    
+    public func AddIncomingEdge(edge:Edge<TNodeData, TEdgeData>){
+        self.incoming.append(edge);
+        self.allEdges.append(edge);
+    }
 }
 
 public func ==<TNodeData, TEdgeData>(lhs: Node<TNodeData, TEdgeData>, rhs: Node<TNodeData, TEdgeData>) -> Bool{

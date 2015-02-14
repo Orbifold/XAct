@@ -9,6 +9,9 @@
 import Foundation
 import XCTest
 
+typealias ObjectGraph = Graph<AnyObject, AnyObject>
+typealias ObjectNode = Node<AnyObject, AnyObject>
+typealias ObjectEdge = Edge<AnyObject, AnyObject>
 class QueueTests : XCTestCase{
     
     func testQueueSimple(){
@@ -76,5 +79,17 @@ class LinkedListTests: XCTestCase{
         XCTAssertTrue(ll.Head != nil)
         XCTAssertEqual(ll.Head.key, 2)
         XCTAssertEqual(ll.Head.next!.key, 3)
+    }
+}
+
+class GraphTests: XCTestCase{
+
+    func testCreate(){
+        var g = ObjectGraph()
+        g.Add(ObjectNode(id: 1))
+        g.Add(ObjectNode(id: 2))
+        XCTAssertEqual(g.Nodes.count, 2)
+        g.AddEdge(1,to: 2)
+        XCTAssertTrue(g.AreConnected(1,to: 2))
     }
 }
