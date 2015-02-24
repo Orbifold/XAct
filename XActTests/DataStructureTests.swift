@@ -9,9 +9,8 @@
 import Foundation
 import XCTest
 
-typealias ObjectGraph = Graph<AnyObject, AnyObject>
-typealias ObjectNode = Node<AnyObject, AnyObject>
-typealias ObjectEdge = Edge<AnyObject, AnyObject>
+
+
 class QueueTests : XCTestCase{
     
     func testQueueSimple(){
@@ -83,13 +82,36 @@ class LinkedListTests: XCTestCase{
 }
 
 class GraphTests: XCTestCase{
-
+    
     func testCreate(){
         var g = ObjectGraph()
         g.Add(ObjectNode(id: 1))
         g.Add(ObjectNode(id: 2))
         XCTAssertEqual(g.Nodes.count, 2)
-        g.AddEdge(1,to: 2)
+        var edge = g.AddEdge(1,to: 2)
+        XCTAssertEqual(g.Edges.count, 1)
         XCTAssertTrue(g.AreConnected(1,to: 2))
+        g.RemoveEdge(edge)
+        XCTAssertTrue(!g.AreConnected(1,to: 2,anyDirection: true))
+    }
+    
+    func testNoMultiGraph(){
+        var g = ObjectGraph()
+        var edge = g.AddEdge(1,to: 2)
+        edge.Weight = 102
+        var other = g.Connect(1,to: 2)
+        XCTAssertTrue(other.Weight != nil && other.Weight == 102)
+    }
+    
+    func testUndirected(){
+        var g = ObjectGraph(isDirected: false)
+        var edge = g.Connect(1,to: 2)
+        XCTAssertTrue(edge.IsDirected)
+        var other = g.Connect(2,to: 1)
+        XCTAssertEqual(edge,other)
+    }
+    
+    func testComponents(){
+    
     }
 }

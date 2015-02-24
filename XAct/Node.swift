@@ -18,7 +18,7 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
     private var outgoing:[Edge<TNodeData, TEdgeData>]
     private var allEdges:[Edge<TNodeData, TEdgeData>]
     private var data:TNodeData?
-    
+    private var id:Int;
     /**
     Gets or sets whether this node is part of a directed graph or
     whether all edges are both incoming and outgoing.
@@ -28,7 +28,7 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
     /**
     The identifier of this node.
     */
-    var Id:Int?;
+    var Id:Int{ get{return self.id}};
     
     /**
     The globally unique identifier of this node.
@@ -39,10 +39,14 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
     */
     var IsRoot:Bool;
     
+    
+    
     /**
-    Default constructor
+    Instantiates a new Node with the given identifier.
+    
+    :param: id The suposedly unique identifier of this node (across the graph).
     */
-    init( ){
+    init(id:Int){
         self.incoming = [Edge<TNodeData, TEdgeData>]()
         self.outgoing = [Edge<TNodeData, TEdgeData>]()
         self.allEdges = [Edge<TNodeData, TEdgeData>]()
@@ -50,16 +54,8 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
         self.IsRoot = false;
         self.IsDirected = true;
         self.Uid = NSUUID().UUIDString
-    }
         
-    /**
-    Instantiates a new Node with the given identifier.
-    
-    :param: id The suposedly unique identifier of this node (across the graph).
-    */
-    convenience init(id:Int){
-        self.init( );
-        self.Id = id
+        self.id = id
     }
     
     /**

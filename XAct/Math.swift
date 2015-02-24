@@ -15,20 +15,35 @@ A collection of standard math utils.
 */
 public struct Math {
     
-    public static var Pi:Double {get{return Constants.Pi}}
+    /**
+    Returns the value of pi.
+    */
+    public static var Pi:Double {get{return Constants.Pi}} // with an insane number of digits really
     
+    /**
+    Returns a random number uniformly distributed across the [0, 1] interval.
+    */
     public static func Random() -> Double{
         return MultiplyWithCarryRandomGenerator.GetUniform()
     }
     
+    /**
+    Returns a random integer within the given interval.
+    */
     public static func Random(min:Int,max:Int) -> Int{
         return MultiplyWithCarryRandomGenerator.GetUniform(min,max: max);
     }
     
-    public static func Sin(x:Double) ->Double{
+    /**
+    Returns the sine of the given angle (in radians)
+    */
+    public static func Sin(x:Double) -> Double{
         return sin(x)
     }
     
+    /**
+    Returns the sine of the given angle sequence (in radians)
+    */
     public static func Sin(seq:SequenceOf<Double>) -> SequenceOf<Double>{
         return SequenceOf<Double>(map(seq,{sin($0)}))
     }
