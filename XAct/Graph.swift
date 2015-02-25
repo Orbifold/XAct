@@ -25,10 +25,12 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     private var isDirected:Bool
     public var Nodes:[Node<TNodeData, TEdgeData>]
     public var Edges:[Edge<TNodeData, TEdgeData>]
+    public var Root:Node<TNodeData, TEdgeData>?
     
     init(isDirected:Bool = true){
         self.Uid = NSUUID().UUIDString
         self.isDirected = isDirected
+        self.Root = nil
         self.Edges = [Edge<TNodeData, TEdgeData>]()
         self.Nodes = [Node<TNodeData, TEdgeData>]()
     }
@@ -364,6 +366,83 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         
     }
     
+    public class func  CreateBalancedForest(levels:Int = 3, siblingsCount:Int = 3, treeCount:Int = 5) -> ObjectGraph{
+        var g =  ObjectGraph()
+        var counter = -1
+        var lastAdded:[ObjectNode] = []
+        var news:[ObjectNode]
+        if (levels <= 0 || siblingsCount <= 0 || treeCount <= 0) {
+            return g
+        }
+        
+        for (var t = 0; t < treeCount; t++) {
+            counter++
+            var root =   ObjectNode(id: counter );
+            g.AddNode(root);
+            lastAdded = [root];
+            for (var i = 0; i < levels; i++) {
+                news = [];
+                for (var j = 0; j < lastAdded.count; j++) {
+                    var parent = lastAdded[j];
+                    for (var k = 0; k < siblingsCount; k++) {
+                        counter++
+                        var item =   ObjectNode(id: counter);
+                        g.AddEdge(parent, sink: item);
+                        news.append(item);
+                    }
+                }
+                lastAdded = news;
+            }
+        }
+        return g;
+    }
+    
+    public class func CreateBalancedTree (levels:Int = 3, siblingsCount:Int = 3) -> ObjectGraph{
+        
+        var g = ObjectGraph()
+        var counter = -1
+        var lastAdded:[ObjectNode] = []
+        var news:[ObjectNode]
+        if (levels <= 0 || siblingsCount <= 0) {
+            return g
+        }
+        counter++
+        var root =  ObjectNode(id: counter);
+        g.AddNode(root);
+        g.Root = root;
+        lastAdded.append(root);
+        for (var i = 0; i < levels; i++) {
+            news = [];
+            for (var j = 0; j < lastAdded.count; j++) {
+                var parent = lastAdded[j];
+                for (var k = 0; k < siblingsCount; k++) {
+                    counter++
+                    var item = ObjectNode(id: counter);
+                    g.AddEdge(parent, sink: item);
+                    news.append(item);
+                }
+            }
+            lastAdded = news;
+        }
+        return g;
+    }
+    /**
+    Parses the given string graph representation and returns the corresponding ObjectGraph.
+    */
+    public class func Parse(graphString:String) -> ObjectGraph{
+        var g = ObjectGraph()
+        if(graphString.isEmpty){return g}
+        var splitted = graphString.componentsSeparatedByString(",")
+        for edgeString in splitted {
+            var el = edgeString.componentsSeparatedByString("->")
+            var fromId = el[0].toInt()
+            var toId = el[1].toInt()
+            if(fromId != nil && toId != nil){
+                g.AddEdge(fromId!, to: toId!)
+            }
+        }
+        return g
+    }
 }
 
 public func ==<TNodeData, TEdgeData>(lhs: Graph<TNodeData, TEdgeData>, rhs: Graph<TNodeData, TEdgeData>) -> Bool{

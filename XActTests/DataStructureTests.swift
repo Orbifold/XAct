@@ -83,6 +83,14 @@ class LinkedListTests: XCTestCase{
 
 class GraphTests: XCTestCase{
     
+    func testParse(){
+        var gString = "1->2,2->3,3->1"
+        var g = ObjectGraph.Parse(gString)
+        XCTAssertEqual(g.Nodes.count, 3, "Should have three nodes")
+        XCTAssertEqual(g.Edges.count, 3, "Should have three edges")
+        XCTAssertTrue(g.AreConnected(3,to: 1), "1 and 3 should be connected")
+    }
+    
     func testCreate(){
         var g = ObjectGraph()
         g.Add(ObjectNode(id: 1))
@@ -112,6 +120,6 @@ class GraphTests: XCTestCase{
     }
     
     func testComponents(){
-    
+        
     }
 }
