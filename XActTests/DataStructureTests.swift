@@ -146,7 +146,13 @@ class GraphTests: XCTestCase{
         XCTAssertEqual(edge,other)
     }
     
-    func testComponents(){
-        
+     func testComponents(){
+        var gString = "1->2,2->3,3->1,4->5"
+        var g = ObjectGraph.Parse(gString)
+        XCTAssertEqual(g.Nodes.count, 5, "Should have five nodes")
+        XCTAssertEqual(g.Edges.count, 4, "Should have four edges")
+
+        var componentsCount = g.NumberOfComponents().count
+        XCTAssertEqual(componentsCount,2)
     }
 }

@@ -269,7 +269,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     /**
     Returns the number of components and the map from a node id to the id of the component the node belongs to.
     */
-    public func NumberOfComponents() -> (Int, [Int:Int])
+    public func NumberOfComponents() -> (count:Int,map: [Int:Int])
     {
         var componentIndex = 0
         var componentMap = [Int:Int]()
@@ -321,6 +321,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         }
         return pool[Math.Random(0, max: pool.count)];
     }
+    
     /**
     * Creates a random graph (uniform distribution) with the specified amount of nodes.
     * @param nodeCount The amount of nodes the random graph should have.
@@ -437,6 +438,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         }
         return g;
     }
+    
     /**
     Parses the given string graph representation and returns the corresponding ObjectGraph.
     For example, "1->2, 2->3, 3->1"
@@ -449,13 +451,13 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         g.isDirected = graphString.rangeOfString("->") != nil
         var separator = g.IsDirected ?"->" :"-"
         // handle the mixed case
-        graphString = graphString.stringByReplacingOccurrencesOfString("->", withString: "-")
+        graphString = graphString.Replace("->", replaceWith: "-")
         if(g.IsDirected){
-            graphString = graphString.stringByReplacingOccurrencesOfString("-", withString: "->")
+            graphString = graphString.Replace("-", replaceWith: "->")
         }
-        var splitted = graphString.componentsSeparatedByString(",")
+        var splitted = graphString.Split(",")
         for edgeString in splitted {
-            var el = edgeString.componentsSeparatedByString(separator)
+            var el = edgeString.Split(separator)
             var fromId = el[0].toInt()
             var toId = el[1].toInt()
             if(fromId != nil && toId != nil){

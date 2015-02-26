@@ -37,6 +37,8 @@
 		D0B0D92E1A85F1A500751E60 /* MarkovChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */; };
 		D0B0D9301A86389E00751E60 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92F1A86389E00751E60 /* Math.swift */; };
 		D0B0D9311A86389E00751E60 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0D92F1A86389E00751E60 /* Math.swift */; };
+		D0D3CC2C1A9EECEA00ADC025 /* ComplexNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3CC2B1A9EECEA00ADC025 /* ComplexNumber.swift */; };
+		D0D3CC2D1A9EECEA00ADC025 /* ComplexNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3CC2B1A9EECEA00ADC025 /* ComplexNumber.swift */; };
 		D0D6FB061A8342AB00AD4EB7 /* MarkovLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */; };
 		D0D6FB071A8342AB00AD4EB7 /* MarkovLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */; };
 		D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB091A834B0B00AD4EB7 /* Queue.swift */; };
@@ -78,6 +80,7 @@
 		D0AFC8381A8A460000B648F4 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		D0B0D92C1A85F1A500751E60 /* MarkovChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovChain.swift; sourceTree = "<group>"; };
 		D0B0D92F1A86389E00751E60 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		D0D3CC2B1A9EECEA00ADC025 /* ComplexNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexNumber.swift; sourceTree = "<group>"; };
 		D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovLink.swift; sourceTree = "<group>"; };
 		D0D6FB091A834B0B00AD4EB7 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D01829ED1A7A7BD10030C9E7 /* Numbers.swift */,
+				D0D3CC2B1A9EECEA00ADC025 /* ComplexNumber.swift */,
 			);
 			name = Number;
 			sourceTree = "<group>";
@@ -348,6 +352,7 @@
 				D01829EE1A7A7BD10030C9E7 /* Numbers.swift in Sources */,
 				D09D0ACE1A8FAECC00B861F7 /* Graph.swift in Sources */,
 				D0AFC8391A8A460000B648F4 /* Node.swift in Sources */,
+				D0D3CC2C1A9EECEA00ADC025 /* ComplexNumber.swift in Sources */,
 				D0D6FB0A1A834B0B00AD4EB7 /* Queue.swift in Sources */,
 				D0961F771A8BCEA0008628EC /* Stack.swift in Sources */,
 				D0B0D9301A86389E00751E60 /* Math.swift in Sources */,
@@ -384,6 +389,7 @@
 				D0B0D92E1A85F1A500751E60 /* MarkovChain.swift in Sources */,
 				D0B0D9311A86389E00751E60 /* Math.swift in Sources */,
 				D0961F6B1A8BCC42008628EC /* MathTests.swift in Sources */,
+				D0D3CC2D1A9EECEA00ADC025 /* ComplexNumber.swift in Sources */,
 				D0961F6F1A8BCC9C008628EC /* DataStructureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

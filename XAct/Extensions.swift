@@ -10,10 +10,34 @@ import Foundation
 
 public extension String{
 
+    /**
+    Returns the number of characters in the string.
+    */
     var length:Int {
         get {
             return Array(self).count
         }
+    }
+    
+    /**
+    Trim the start and trailing spaces.
+    */
+    public func Trim() -> String{
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+    
+    /**
+    Search and replace of the given strings.
+    */
+    public func Replace(searchFor:String, replaceWith:String) -> String{
+        return self.stringByReplacingOccurrencesOfString(searchFor, withString: replaceWith)
+    }
+    
+    /**
+    Returns the elements of the string by spliting with the given string.
+    */
+    public func Split(separator:String) -> [String]{
+        return self.componentsSeparatedByString(separator)
     }
 }
 
