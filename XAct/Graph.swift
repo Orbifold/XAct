@@ -26,6 +26,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     public var Nodes:[Node<TNodeData, TEdgeData>]
     public var Edges:[Edge<TNodeData, TEdgeData>]
     public var Root:Node<TNodeData, TEdgeData>?
+    public var IsDirected:Bool{get{return self.isDirected}}
     
     init(isDirected:Bool = true){
         self.Uid = NSUUID().UUIDString
@@ -34,6 +35,16 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         self.Edges = [Edge<TNodeData, TEdgeData>]()
         self.Nodes = [Node<TNodeData, TEdgeData>]()
     }
+    
+    /**
+    Returns true if the graph has no loops.
+    */
+    public var IsSimple:Bool{get{
+        for edge in Edges{
+            if(edge.Source == edge.Sink){ return false}
+        }
+        return true
+        }}
     
     /**
     Adds the given graph item to this graph.
@@ -114,7 +125,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
             if(edge.Source == fromNode && edge.Sink == toNode) {
                 return true
             }
-            if(anyDirection){
+            if(anyDirection || !IsDirected){
                 if(edge.Sink == fromNode && edge.Source == toNode) {
                     return true
                 }
@@ -428,13 +439,23 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     }
     /**
     Parses the given string graph representation and returns the corresponding ObjectGraph.
+    For example, "1->2, 2->3, 3->1"
     */
-    public class func Parse(graphString:String) -> ObjectGraph{
+    public class func Parse(var graphString:String) -> ObjectGraph{
         var g = ObjectGraph()
         if(graphString.isEmpty){return g}
+       
+        // if -> appears once we'll assume a directed graph
+        g.isDirected = graphString.rangeOfString("->") != nil
+        var separator = g.IsDirected ?"->" :"-"
+        // handle the mixed case
+        graphString = graphString.stringByReplacingOccurrencesOfString("->", withString: "-")
+        if(g.IsDirected){
+            graphString = graphString.stringByReplacingOccurrencesOfString("-", withString: "->")
+        }
         var splitted = graphString.componentsSeparatedByString(",")
         for edgeString in splitted {
-            var el = edgeString.componentsSeparatedByString("->")
+            var el = edgeString.componentsSeparatedByString(separator)
             var fromId = el[0].toInt()
             var toId = el[1].toInt()
             if(fromId != nil && toId != nil){

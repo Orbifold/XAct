@@ -84,11 +84,38 @@ class LinkedListTests: XCTestCase{
 class GraphTests: XCTestCase{
     
     func testParse(){
+        // standard case
         var gString = "1->2,2->3,3->1"
         var g = ObjectGraph.Parse(gString)
         XCTAssertEqual(g.Nodes.count, 3, "Should have three nodes")
         XCTAssertEqual(g.Edges.count, 3, "Should have three edges")
         XCTAssertTrue(g.AreConnected(3,to: 1), "1 and 3 should be connected")
+        XCTAssertTrue(g.IsSimple, "The graph is simple")
+        
+        // no multigraph
+        gString = "1-2,1-2,2-1"
+        g = ObjectGraph.Parse(gString)
+        XCTAssertEqual(g.Nodes.count, 2, "Should have two nodes")
+        XCTAssertEqual(g.Edges.count, 1, "Should have one edge")
+        XCTAssertTrue(g.AreConnected(2,to: 1), "1 and 2 should be connected")
+        XCTAssertTrue(g.IsSimple, "The graph is simple")
+        
+        // mixed case
+        gString = "1-2,1->5,5->1"
+        g = ObjectGraph.Parse(gString)
+        XCTAssertEqual(g.Nodes.count, 3, "Should have three nodes")
+        XCTAssertTrue(g.IsDirected, "The graph is directed")
+        XCTAssertEqual(g.Edges.count, 3, "Should have three edges")
+        
+        // loops
+        gString = "1-1,1-2,2-2"
+        g = ObjectGraph.Parse(gString)
+        XCTAssertEqual(g.Nodes.count, 2, "Should have two nodes")
+        XCTAssertEqual(g.Edges.count, 3, "Should have three edges")
+        XCTAssertTrue(g.AreConnected(2,to: 1), "1 and 2 should be connected")
+        XCTAssertTrue(g.AreConnected(1,to: 1), "1 and 1 should be connected")
+        XCTAssertTrue(!g.IsSimple, "The graph is not simple")
+        
     }
     
     func testCreate(){
