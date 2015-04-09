@@ -51,11 +51,11 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     */
     public func Add(item:IGraphElement) -> IGraphElement?{
         if item is Node<TNodeData, TEdgeData>{
-            let node = item as Node<TNodeData, TEdgeData>
+            let node = item as! Node<TNodeData, TEdgeData>
             return self.AddNode(node)
         }
         else if item is Edge<TNodeData, TEdgeData>{
-            let edge = item as Edge<TNodeData, TEdgeData>
+            let edge = item as! Edge<TNodeData, TEdgeData>
             
             return AddEdge(edge)
         }
