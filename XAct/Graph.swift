@@ -100,7 +100,9 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         }
         var source = IdExists(from) ? FindNode(from)! : self.AddNode(from);
         var sink = IdExists(to) ? FindNode(to)! : self.AddNode(to);
-        var edge = Edge<TNodeData, TEdgeData>(source: source, sink: sink)
+        var edge = Edge<TNodeData, TEdgeData>(source: source, sink: sink);
+    source.AddOutgoingEdge(edge);
+        sink.AddIncomingEdge(edge);
         Edges.append(edge)
         return edge
     }
@@ -183,8 +185,10 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     Removes the given edge from this graph.
     */
     public func RemoveEdge(edge:Edge<TNodeData,TEdgeData>) -> Bool{
+        edge.Source.RemoveOutgoingEdge(edge)
+        edge.Sink.RemoveIncomingEdge(edge)
         if let index = find(self.Edges, edge){
-            self.Edges.removeAtIndex(index)
+            self.Edges.removeAtIndex(index)           
             return true
         }
         return false
@@ -279,7 +283,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
         for( var k = 0; k<Nodes.count; k++){
             
             if(componentMap[Nodes[k].Id] != -1){ continue} // means it already belongs to a component
-            self.AssignConnectedConponent(componentMap, listIndex: k, componentIndex: componentIndex)
+            self.AssignConnectedConponent(&componentMap, listIndex: k, componentIndex: componentIndex)
             componentIndex++
         }
         return (componentIndex, componentMap)
@@ -287,7 +291,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
     /**
     Utility metbod related to the connectedness of this graph.
     */
-    func AssignConnectedConponent(var componentMap:[Int:Int], listIndex: Int, componentIndex:Int){
+    func AssignConnectedConponent(inout componentMap:[Int:Int], listIndex: Int, componentIndex:Int){
         var node = Nodes[listIndex]
         componentMap[node.Id] = componentIndex
         var neighbors = node.Neighbors
@@ -295,7 +299,7 @@ public class Graph<TNodeData, TEdgeData>: Equatable
             if (componentMap[neighbor.Id] == -1) {
                 
                 let unvisitedIndex = find(Nodes, neighbor)
-                self.AssignConnectedConponent(componentMap,listIndex: unvisitedIndex!, componentIndex: componentIndex)
+                self.AssignConnectedConponent(&componentMap,listIndex: unvisitedIndex!, componentIndex: componentIndex)
             }
         }
     }

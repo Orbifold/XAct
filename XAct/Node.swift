@@ -156,7 +156,7 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
             {
                 var opps = edge.GetOppositeNode(self);
                 if(opps==nil || opps! == self){ continue} // loops
-                if(contains(neigs, opps!)){ neigs.append(opps!)}
+                if(!contains(neigs, opps!)){ neigs.append(opps!)}
             }
             return neigs;
         }
@@ -192,7 +192,7 @@ public class Node<TNodeData, TEdgeData>: Equatable, IGraphElement
         if (contains(self.outgoing, edge))
         {
             if let index = find(self.outgoing, edge) {
-                self.incoming.removeAtIndex(index)
+                self.outgoing.removeAtIndex(index)
             }
             if let index = find(self.allEdges, edge) {
                 self.allEdges.removeAtIndex(index)
