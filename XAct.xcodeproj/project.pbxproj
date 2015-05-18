@@ -45,6 +45,7 @@
 		D0D6FB0B1A834B0B00AD4EB7 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB091A834B0B00AD4EB7 /* Queue.swift */; };
 		D0D6FB0D1A835F2800AD4EB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */; };
 		D0D6FB0E1A835F2800AD4EB7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */; };
+		D0EE99791B09AD3100A9345C /* ComplexNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EE99771B09AD3100A9345C /* ComplexNumberTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		D0D6FB051A8342AB00AD4EB7 /* MarkovLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkovLink.swift; sourceTree = "<group>"; };
 		D0D6FB091A834B0B00AD4EB7 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		D0D6FB0C1A835F2800AD4EB7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D0EE99771B09AD3100A9345C /* ComplexNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexNumberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				D0961F701A8BCD0F008628EC /* MWCTests.swift */,
 				D0961F721A8BCD42008628EC /* FunctionsTests.swift */,
 				D0961F741A8BCD5B008628EC /* NumberTests.swift */,
+				D0EE99771B09AD3100A9345C /* ComplexNumberTests.swift */,
 			);
 			path = XActTests;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				D0961F6B1A8BCC42008628EC /* MathTests.swift in Sources */,
 				D0D3CC2D1A9EECEA00ADC025 /* ComplexNumber.swift in Sources */,
 				D0961F6F1A8BCC9C008628EC /* DataStructureTests.swift in Sources */,
+				D0EE99791B09AD3100A9345C /* ComplexNumberTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

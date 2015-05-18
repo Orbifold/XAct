@@ -47,4 +47,18 @@ public struct Math {
     public static func Sin(seq:SequenceOf<Double>) -> SequenceOf<Double>{
         return SequenceOf<Double>(map(seq,{sin($0)}))
     }
+
+    /**
+   Returns the square root of the given angle (in radians)
+   */
+    public static func Sqrt(x:Double) -> Double{
+        return sqrt(x)
+    }
+
+    /**
+   Returns the square root of the given angle sequence (in radians)
+   */
+    public static func Sqrt(seq:SequenceOf<Double>) -> SequenceOf<Double>{
+        return SequenceOf<Double>(map(seq,{sqrt($0)}))
+    }
 }

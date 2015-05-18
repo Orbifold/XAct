@@ -33,7 +33,7 @@ public struct ComplexNumber{
             return sqrt(Re*Re + Im*Im)
         }}
 }
-
+var I = 1.I;
 public extension Double{
     public var I:ComplexNumber{get{return ComplexNumber(re: 0,im: self) }}
 }
@@ -78,6 +78,17 @@ public func ==(u:ComplexNumber, v:ComplexNumber) -> Bool{
     return u.Re == v.Re && u.Im == v.Im
 }
 
+
+
+public func Re(u:ComplexNumber) -> Double{
+    if(u.IsNaN){ return Double.NaN}
+    return u.Re;
+}
+
+public func Im(u:ComplexNumber) -> Double{
+    if(u.IsNaN){ return Double.NaN}
+    return u.Im;
+}
 
 
 public func Norm(u:ComplexNumber) -> Double{
