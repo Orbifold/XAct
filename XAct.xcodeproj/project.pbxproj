@@ -68,6 +68,7 @@
 		D03B49BF1A78A871003AAE6F /* XActTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XActTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03B49C51A78A871003AAE6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03B49D01A78A8EA003AAE6F /* MWCGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MWCGenerator.swift; sourceTree = "<group>"; };
+		D06645C91B0EE70100788D37 /* Functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Functions.playground; sourceTree = "<group>"; };
 		D06A64911A7CB38300D00421 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D0961F6A1A8BCC42008628EC /* MathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		D0961F6C1A8BCC5F008628EC /* DataGeneratorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGeneratorsTests.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		D03B49C31A78A871003AAE6F /* XActTests */ = {
 			isa = PBXGroup;
 			children = (
+				D06645C81B0EE6E200788D37 /* Playground */,
 				D03B49C41A78A871003AAE6F /* Supporting Files */,
 				D0961F6A1A8BCC42008628EC /* MathTests.swift */,
 				D0961F6C1A8BCC5F008628EC /* DataGeneratorsTests.swift */,
@@ -214,6 +216,14 @@
 				D03B49C51A78A871003AAE6F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D06645C81B0EE6E200788D37 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				D06645C91B0EE70100788D37 /* Functions.playground */,
+			);
+			name = Playground;
 			sourceTree = "<group>";
 		};
 		D0D6FB031A83428600AD4EB7 /* Data Generators */ = {
